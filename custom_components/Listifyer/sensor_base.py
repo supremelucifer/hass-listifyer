@@ -77,11 +77,11 @@ class ListifyerDataSensor(RestoreEntity):
             elif self._data_type in DAILY_FILTER_TYPES:
                 processed_data = self._filter_for_current_day(data)
 
-        # Update de staat en attributen met de (mogelijk gefilterde) data
+      
         if isinstance(processed_data, list):
             self._state = len(processed_data)
             self._attributes["items"] = processed_data
-        else: # Voor data die geen lijst is (bv. meal_plan)
+        else: 
             self._state = 1 if processed_data else 0
             self._attributes["item"] = processed_data
         
@@ -121,7 +121,7 @@ class ListifyerDataSensor(RestoreEntity):
                         if start_date.year == current_year and start_date.month == current_month:
                             item_is_relevant = True
                     
-                    # Als de trip niet deze maand start, kijk of hij deze maand eindigt
+           
                     if not item_is_relevant:
                         end_date_str = item.get("endDate")
                         if end_date_str:
@@ -129,15 +129,15 @@ class ListifyerDataSensor(RestoreEntity):
                             if end_date.year == current_year and end_date.month == current_month:
                                 item_is_relevant = True
 
-                # Logica voor 'bills' die deze maand actief zijn
+              
                 elif self._data_type == "bills":
                     start_date_str = item.get("startDate")
                     end_date_str = item.get("endDate")
                     if start_date_str:
                         start_date = datetime.strptime(start_date_str, "%Y-%m-%d").date()
-                        # De rekening moet al gestart zijn
+                   
                         if start_date <= now.date():
-                            # En hij is nog niet afgelopen (of heeft geen einddatum)
+                      
                             if not end_date_str or datetime.strptime(end_date_str, "%Y-%m-%d").date() >= now.date():
                                 item_is_relevant = True
 
@@ -149,9 +149,7 @@ class ListifyerDataSensor(RestoreEntity):
         
         return filtered_list
 
-    # ===================================================================
-    # NIEUWE DAGELIJKSE FILTERLOGICA
-    # ===================================================================
+
     def _filter_for_current_day(self, data: list) -> list:
         """Filters a list of items to only include those relevant to the current day."""
         now_date = datetime.now().date()
@@ -161,7 +159,7 @@ class ListifyerDataSensor(RestoreEntity):
             try:
                 item_is_relevant = False
 
-                # Logica voor 'medications' die vandaag actief zijn
+
                 if self._data_type == "medications":
                     start_date_str = item.get("startDate")
                     end_date_str = item.get("endDate")
@@ -169,14 +167,14 @@ class ListifyerDataSensor(RestoreEntity):
                     if start_date_str:
                         start_date = datetime.strptime(start_date_str, "%Y-%m-%d").date()
                         
-                        # Vandaag moet na of op de startdatum zijn
+
                         is_started = start_date <= now_date
                         
-                        # Als er een einddatum is, moet vandaag voor of op die datum zijn
+
                         is_not_ended = not end_date_str or datetime.strptime(end_date_str, "%Y-%m-%d").date() >= now_date
                         
                         if is_started and is_not_ended:
-                            # Hier kan eventueel nog complexere logica komen voor bv. specifieke dagen van de week
+                      
                             item_is_relevant = True
                 
                 if item_is_relevant:
@@ -187,7 +185,7 @@ class ListifyerDataSensor(RestoreEntity):
         
         return filtered_list
     
-    # De properties blijven ongewijzigd
+
     @property
     def unique_id(self) -> str:
         return self._unique_id
@@ -205,4 +203,5 @@ class ListifyerDataSensor(RestoreEntity):
         return self._icon
     @property
     def should_poll(self) -> bool:
+
         return False
