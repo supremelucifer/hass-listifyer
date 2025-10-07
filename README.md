@@ -22,6 +22,12 @@ This is the official Home Assistant integration for the Listifyer App.
 5.  The "Listifyer" integration will now appear in your list. Click **Install**.
 6.  Restart Home Assistant when prompted by HACS.
 
+## App configuration
+
+In the Listifyer app, first go to "Settings" and then navigate to the "Plugins" tab. Select "Home Assistant" and enter the URL of your Home Assistant instance (preferably the remote URL) and a Long-Lived Access Token.
+
+Once you have filled in all the details, you need to perform a one-time force full sync. After that, Home Assistant will be updated automatically as soon as you adjust something in the app.
+
 ## Configuration
 
 After installation and restarting, you can add the integration. Click the button below to go directly to the configuration page.
