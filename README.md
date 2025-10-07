@@ -1,6 +1,13 @@
+    
 <p align="center">
   <img width="150" alt="listifyer" src="https://github.com/user-attachments/assets/93a023fa-3e92-4155-8bd4-e2a513ddd152">
+  <br><br>
+  <a href="https://play.google.com/store/apps/details?id=com.dimitri.listifyer" target="_blank">
+    <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200"/>
+  </a>
 </p>
+
+  
 
 # Listifyer for Home Assistant
 
