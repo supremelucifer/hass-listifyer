@@ -1,0 +1,14 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "Connect Listifyer",
+                "description": "This integration requires no configuration and acts as a receiver for the Listifyer app.\n\nEnsure the Listifyer app is configured to send data to this Home Assistant instance.\n\nFor more details, see the [documentation]({docs_url})."
+            }
+        },
+        "abort": {
+            "single_instance_allowed": "Only a single Listifyer integration can be configured."
+        }
+    },
+    "title": "Listifyer"
+}

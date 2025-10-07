@@ -1,0 +1,10 @@
+{
+  "domain": "listifyer",
+  "name": "Listifyer",
+  "config_flow": true,
+  "documentation": "https://github.com/DimitriVDE/Listifyer",
+  "iot_class": "cloud_push",
+  "version": "1.0.0",
+  "codeowners": ["@DimitriVDE"],
+  "icon": "mdi:format-list-bulleted-square"
+}
