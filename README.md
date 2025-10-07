@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="150" alt="listifyer" src="https://github.com/user-attachments/assets/93a023fa-3e92-4155-8bd4-e2a513ddd152">
+</p>
+
 # Listifyer for Home Assistant
 
 This is the official Home Assistant integration for the Listifyer App.
