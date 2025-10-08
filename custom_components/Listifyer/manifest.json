@@ -2,9 +2,10 @@
   "domain": "listifyer",
   "name": "Listifyer",
   "config_flow": true,
-  "documentation": "https://github.com/DimitriVDE/Listifyer",
+  "documentation": "https://github.com/supremelucifer/hass-listifyer",
   "iot_class": "cloud_push",
   "version": "1.0.0",
-  "codeowners": ["@DimitriVDE"],
+  "codeowners": ["@supremelucifer"],
   "icon": "mdi:format-list-bulleted-square"
+
 }
