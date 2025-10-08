@@ -26,7 +26,7 @@ This is the official Home Assistant integration for the Listifyer App.
 
 In the Listifyer app, first go to "Settings" and then navigate to the "Plugins" tab. Select "Home Assistant" and enter the URL of your Home Assistant instance (preferably the remote URL) and a Long-Lived Access Token.
 
-Once you have filled in all the details, you need to perform a one-time force full sync. After that, Home Assistant will be updated automatically as soon as you adjust something in the app.
+Once you have filled in all the details, you need to perform a one-time force full synchronization. After that, Home Assistant will be updated automatically as soon as you adjust something in the app.
 
 ## Configuration
 
