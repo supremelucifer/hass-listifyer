@@ -65,31 +65,6 @@ Here are some example Lovelace cards you can create using the sensors provided b
 
 </details>
 
-<details>
-<summary><b>Example: Recently Added Media</b></summary>
-
-    type: custom:mushroom-template-card
-    primary: '{{ state_attr(''sensor.listifyer_media_items'', ''items'').title }}'
-    secondary: '{{ state_attr(''sensor.listifyer_media_items'', ''items'').genre | default('''') }}'
-    icon: >-
-      {% set type = state_attr('sensor.listifyer_media_items', 'items').type %}
-      {% if type == 'MOVIE' %} mdi:movie-roll
-      {% elif type == 'SERIES' %} mdi:television-classic
-      {% elif type == 'GAME' %} mdi:controller-classic
-      {% elif type == 'PODCAST' %} mdi:podcast
-      {% elif type == 'BOOK' %} mdi:book-open-page-variant
-      {% elif type == 'MUSIC' %} mdi:music-note
-      {% else %} mdi:star
-      {% endif %}
-    layout: vertical
-    picture: '{{ state_attr(''sensor.listifyer_media_items'', ''items'').imageUrl }}'
-    fill_container: true
-    tap_action:
-      action: url
-      url_path: '{{ state_attr(''sensor.listifyer_media_items'', ''items'').sourceUrl }}'
-    entity: sensor.listifyer_media_items
-
-</details>
 
 <details>
 <summary><b>Example: Series Progress Tracker</b></summary>
@@ -249,7 +224,7 @@ Here are some example Lovelace cards you can create using the sensors provided b
             <table style="width: 100%; border-collapse: collapse;">
             {%- for meal_key in meal_order -%}
               {%- if plan_data[day_key][meal_key] is defined and plan_data[day_key][meal_key] | count > 0 -%}
-                {%- set recipe = plan_data[day_key][meal_key] -%}
+                {%- set recipe = plan_data[day_key][meal_key][0] -%}
                 <tr style="border-bottom: 1px solid #393939;">
                   <td style="width: 30px; text-align: center; padding: 10px 5px 10px 0px;"><ha-icon icon="{{ meal_icons[meal_key] }}" style="color: grey;"></ha-icon></td>
                   <td style="width: 60px; padding: 10px 10px 10px 5px;"><img src="{{ recipe.imageIdentifier }}" width="50" style="border-radius: 4px; display: block;"></td>
